@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dhgrqh1hmvb3d"
-path="res://.godot/imported/Fragile Bombers.otf-cc8fabadf4b60ea7180afe745dc53424.fontdata"
+path="res://.godot/imported/Fragile Bombers.otf-c2b5abcec14db4c9836a89f9d63e1056.fontdata"
 
 [deps]
 
-source_file="res://Fragile Bombers.otf"
-dest_files=["res://.godot/imported/Fragile Bombers.otf-cc8fabadf4b60ea7180afe745dc53424.fontdata"]
+source_file="res://Fonts/Fragile Bombers.otf"
+dest_files=["res://.godot/imported/Fragile Bombers.otf-c2b5abcec14db4c9836a89f9d63e1056.fontdata"]
 
 [params]
 

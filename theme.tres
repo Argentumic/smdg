@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://brkhbiirf1aky"]
 
-[ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fragile Bombers.otf" id="1_e1x85"]
+[ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fonts/Fragile Bombers.otf" id="1_e1x85"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 content_margin_left = 4.0

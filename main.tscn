@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://cxmpat2wmbsae"]
 
-[ext_resource type="Script" uid="uid://8xf0ebg7ooho" path="res://camera_3d.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://8xf0ebg7ooho" path="res://Scripts/camera_3d.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://b1edygjakmxqd" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://drc7xcxfrgmd6" path="res://3dModels/earth/scene.gltf" id="2_dg77c"]
-[ext_resource type="Texture2D" uid="uid://ch7my7c3d2mxk" path="res://stars.png" id="2_efxa6"]
-[ext_resource type="Script" uid="uid://cxq1l4u3ooxv7" path="res://rocket.gd" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://c1noexiybov1v" path="res://progress.gd" id="4_1bvp3"]
-[ext_resource type="FontFile" uid="uid://bv1h1ih311a11" path="res://Nasalization Rg.otf" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://xn3k40htoew8" path="res://space_mission_design.gd" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://ch7my7c3d2mxk" path="res://Textures/stars.png" id="2_efxa6"]
+[ext_resource type="Script" uid="uid://cxq1l4u3ooxv7" path="res://Scripts/rocket.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://c1noexiybov1v" path="res://Scripts/progress.gd" id="4_1bvp3"]
+[ext_resource type="FontFile" uid="uid://bv1h1ih311a11" path="res://Fonts/Nasalization Rg.otf" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://xn3k40htoew8" path="res://Scripts/space_mission_design.gd" id="5_272bh"]
 [ext_resource type="Theme" uid="uid://brkhbiirf1aky" path="res://theme.tres" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://mslhv6tpkh12" path="res://3dModels/sun/sun.gltf" id="6_ycdy4"]
-[ext_resource type="Script" uid="uid://brbdx40ewd1mj" path="res://cards.gd" id="8_4c57u"]
-[ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fragile Bombers.otf" id="8_5vw27"]
-[ext_resource type="Script" uid="uid://c6jjxnov5p2jb" path="res://card.gd" id="8_kek77"]
+[ext_resource type="Script" uid="uid://brbdx40ewd1mj" path="res://Scripts/cards.gd" id="8_4c57u"]
+[ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fonts/Fragile Bombers.otf" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://c6jjxnov5p2jb" path="res://Scripts/card.gd" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://dalpho2e5oiwb" path="res://Textures/table.png" id="11_w48qg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mti6b"]
 disable_ambient_light = true
@@ -95,14 +96,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="ColorRect" parent="SpaceMissionDesign/UserSegment" unique_id=443385952]
+[node name="BG" type="TextureRect" parent="SpaceMissionDesign/UserSegment" unique_id=1962189449]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.637552, 0, 0.082606696, 1)
+texture = ExtResource("11_w48qg")
 
 [node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/UserSegment/BG" unique_id=1207610895]
 layout_mode = 1
@@ -173,14 +174,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="ColorRect" parent="SpaceMissionDesign/GroundSegment" unique_id=194671940]
+[node name="BG" type="TextureRect" parent="SpaceMissionDesign/GroundSegment" unique_id=806431313]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.5484931, 0.2175765, 0, 1)
+texture = ExtResource("11_w48qg")
 
 [node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=1763033849]
 layout_mode = 1
@@ -251,14 +252,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="ColorRect" parent="SpaceMissionDesign/SpaceSegment" unique_id=1316980955]
+[node name="BG" type="TextureRect" parent="SpaceMissionDesign/SpaceSegment" unique_id=408953206]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.3960673, 0.32936078, 0, 1)
+texture = ExtResource("11_w48qg")
 
 [node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=2093708545]
 layout_mode = 1
@@ -329,14 +330,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="ColorRect" parent="SpaceMissionDesign/LaunchSegment" unique_id=904940294]
+[node name="BG" type="TextureRect" parent="SpaceMissionDesign/LaunchSegment" unique_id=396435224]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.224644, 0.38654384, 0, 1)
+texture = ExtResource("11_w48qg")
 
 [node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=930192402]
 layout_mode = 1
@@ -401,10 +402,10 @@ text = "<- Main Menu"
 
 [node name="Cards" type="HBoxContainer" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=892247670]
 layout_mode = 0
-offset_left = 119.0
-offset_top = 347.0
-offset_right = 1035.0
-offset_bottom = 857.0
+offset_left = 265.0
+offset_top = 318.0
+offset_right = 1181.0
+offset_bottom = 828.0
 script = ExtResource("8_4c57u")
 
 [node name="Card" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1144806962]
@@ -443,6 +444,11 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card/Card" unique_id=1170627957]
+layout_mode = 2
+text = "Outsource QA
+10 million USD"
+
 [node name="Card2" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1471873966]
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
@@ -478,6 +484,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2/Card" unique_id=1394005331]
+layout_mode = 2
+text = "In-house QA
+25 million USD"
 
 [node name="Card3" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=862980537]
 custom_minimum_size = Vector2(288, 416)
@@ -515,14 +526,20 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3/Card" unique_id=807800506]
+layout_mode = 2
+text = "Thorough QA
+40 million USD"
+
 [node name="Card4" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1455473869]
+visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
 tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
-cost = 40
+cost = 3
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" unique_id=1867363584]
 visible = false
@@ -551,14 +568,20 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4/Card" unique_id=759590221]
+layout_mode = 2
+text = "Standard payload assembly
+3 million USD"
+
 [node name="Card5" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=2004798087]
+visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
 tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
-cost = 40
+cost = 12
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" unique_id=110576927]
 visible = false
@@ -587,14 +610,21 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5/Card" unique_id=327895596]
+layout_mode = 2
+text = "ISO-8 cleanroom payload
+assembly
+12 million USD"
+
 [node name="Card6" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=2108766152]
+visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
 tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
-cost = 40
+cost = 20
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" unique_id=1297039756]
 visible = false
@@ -623,14 +653,21 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6/Card" unique_id=47704209]
+layout_mode = 2
+text = "Ultra clean ISO-5 cleanroom
+payload assembly
+20 million USD"
+
 [node name="Card7" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=592972468]
+visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
 tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
-cost = 40
+cost = 5
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" unique_id=1378167187]
 visible = false
@@ -659,14 +696,21 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7/Card" unique_id=849037794]
+layout_mode = 2
+text = "Regular Telemetry and
+Tracking
+5 million USD"
+
 [node name="Card8" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1929027516]
+visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
 tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
-cost = 40
+cost = 15
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" unique_id=486299276]
 visible = false
@@ -695,14 +739,21 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8/Card" unique_id=1578471953]
+layout_mode = 2
+text = "Increased amount of sensors
+and data sent to Earth
+15 million USD"
+
 [node name="Card9" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1948047927]
+visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
 tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
-cost = 40
+cost = 30
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" unique_id=1389990381]
 visible = false
@@ -731,12 +782,29 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_mti6b")
 
-[node name="Cost" type="RichTextLabel" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=997215543]
-layout_mode = 0
-offset_left = 122.0
-offset_top = 136.0
-offset_right = 353.0
-offset_bottom = 181.0
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9/Card" unique_id=732609143]
+layout_mode = 2
+text = "Sophisticated Telemetry and
+Tracking systems.
+Automatic Troubleshooting.
+30 million USD"
+
+[node name="Budget" type="RichTextLabel" parent="SpaceMissionDesign" unique_id=1872576450]
+offset_left = 955.0
+offset_top = 867.0
+offset_right = 1299.0
+offset_bottom = 912.0
+theme_override_fonts/normal_font = ExtResource("8_5vw27")
+theme_override_font_sizes/normal_font_size = 32
+text = "Budget: 4000 million USD"
+fit_content = true
+scroll_active = false
+
+[node name="Cost" type="RichTextLabel" parent="SpaceMissionDesign" unique_id=997215543]
+offset_left = 1013.0
+offset_top = 907.0
+offset_right = 1244.0
+offset_bottom = 952.0
 theme_override_fonts/normal_font = ExtResource("8_5vw27")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
@@ -744,17 +812,6 @@ text = "[color=red]-$5000"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
-
-[node name="Budget" type="RichTextLabel" parent="SpaceMissionDesign" unique_id=1872576450]
-offset_left = 64.0
-offset_top = 96.0
-offset_right = 408.0
-offset_bottom = 141.0
-theme_override_fonts/normal_font = ExtResource("8_5vw27")
-theme_override_font_sizes/normal_font_size = 32
-text = "Budget: 4000 million USD"
-fit_content = true
-scroll_active = false
 
 [connection signal="pressed" from="SpaceMissionDesign/UserSegment/BG/Next" to="SpaceMissionDesign" method="_on_user_segment_next_pressed"]
 [connection signal="pressed" from="SpaceMissionDesign/UserSegment/BG/Previous" to="SpaceMissionDesign" method="_on_user_segment_previous_pressed"]

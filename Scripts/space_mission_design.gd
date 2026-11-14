@@ -9,13 +9,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$Budget.text = str("Budget: ",budget," million USD")
 
 @onready var launch_segment: Control = $LaunchSegment
 func _on_launch_segment_next_pressed() -> void:
-	if $LaunchSegment/BG/Cards.next_card_set():
-		$Budget.text = str("Budget: ",budget," million USD")
-	else:
+	if !$LaunchSegment/BG/Cards.next_card_set():
 		launch_segment.visible = false;
 
 @onready var space_segment: Control = $SpaceSegment

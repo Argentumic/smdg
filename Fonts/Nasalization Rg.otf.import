@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bv1h1ih311a11"
-path="res://.godot/imported/Nasalization Rg.otf-6d58b60c1adb86bd7c5d0ebce7c8d047.fontdata"
+path="res://.godot/imported/Nasalization Rg.otf-12d5b135e71aec5e8e56067c96dc8cc4.fontdata"
 
 [deps]
 
-source_file="res://Nasalization Rg.otf"
-dest_files=["res://.godot/imported/Nasalization Rg.otf-6d58b60c1adb86bd7c5d0ebce7c8d047.fontdata"]
+source_file="res://Fonts/Nasalization Rg.otf"
+dest_files=["res://.godot/imported/Nasalization Rg.otf-12d5b135e71aec5e8e56067c96dc8cc4.fontdata"]
 
 [params]
 
