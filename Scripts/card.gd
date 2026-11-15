@@ -2,6 +2,7 @@ extends Control
 
 var is_mouse_inside:bool = false;
 @export var cost:int = 1000;
+@export var reliability:int = 30;
 @onready var higlight: Panel = $Panel
 
 

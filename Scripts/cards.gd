@@ -10,10 +10,10 @@ func _process(delta: float) -> void:
 			card.higlight.visible = false
 		else:
 			card.higlight.visible = true
-			cost.text = str("[color=red]-", card.cost, " million USD")
+			cost.text = str("[color=red]-", card.cost, " billion USD")
 
 var phase:int = 0;
-@onready var phase_cards = [[$Card,$Card2,$Card3],[$Card4,$Card5,$Card6],[$Card7,$Card8,$Card9]]
+@onready var phase_cards = [[$Card, $Card2, $Card3],[$Card4, $Card5, $Card6],[$Card7, $Card8, $Card9],[$Card14, $Card15, $Card16],[$Card18, $Card19, $Card20],[$Card10, $Card11, $Card12, $Card13, $Card17]]
 
 func next_card_set() -> bool:
 	$"../../..".budget -= picked_card.cost

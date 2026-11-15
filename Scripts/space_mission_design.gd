@@ -1,15 +1,16 @@
 extends CanvasLayer
 
-var budget:int = 4000
+var budget:int = 60
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+var engine_reliability: float = 0;
+var chassis_reliability: float = 0;
+var communication_reliability: float = 0;
+var software_reliability: float = 0;
+var power_reliability: float = 0;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Budget.text = str("Budget: ",budget," million USD")
+	$Budget.text = str("Budget: ",budget," billion USD")
 
 @onready var launch_segment: Control = $LaunchSegment
 func _on_launch_segment_next_pressed() -> void:
