@@ -1,0 +1,1347 @@
+[gd_scene format=3 uid="uid://cxmpat2wmbsae"]
+
+[ext_resource type="Script" uid="uid://8xf0ebg7ooho" path="res://Scripts/camera_3d.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://drc7xcxfrgmd6" path="res://3dModels/earth/scene.gltf" id="2_dg77c"]
+[ext_resource type="Texture2D" uid="uid://ch7my7c3d2mxk" path="res://Textures/stars.png" id="2_efxa6"]
+[ext_resource type="Script" uid="uid://cxq1l4u3ooxv7" path="res://Scripts/rocket.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://c1noexiybov1v" path="res://Scripts/progress.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://4mk2xmc7mmr" path="res://Textures/rocket.png" id="4_getpj"]
+[ext_resource type="FontFile" uid="uid://bv1h1ih311a11" path="res://Fonts/Nasalization Rg.otf" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://xn3k40htoew8" path="res://Scripts/space_mission_design.gd" id="5_272bh"]
+[ext_resource type="Theme" uid="uid://brkhbiirf1aky" path="res://theme.tres" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://mslhv6tpkh12" path="res://3dModels/sun/sun.gltf" id="6_ycdy4"]
+[ext_resource type="Script" uid="uid://brbdx40ewd1mj" path="res://Scripts/cards.gd" id="8_4c57u"]
+[ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fonts/Fragile Bombers.otf" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://5khguql0mt4b" path="res://Scripts/deck.gd" id="8_074og"]
+[ext_resource type="Script" uid="uid://c6jjxnov5p2jb" path="res://Scripts/card.gd" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://dalpho2e5oiwb" path="res://Textures/table.png" id="11_w48qg"]
+[ext_resource type="Texture2D" uid="uid://c855frn2a5phs" path="res://Textures/steel.png" id="14_getpj"]
+[ext_resource type="Texture2D" uid="uid://dyuyry1jrs54g" path="res://Textures/silver.png" id="15_ryguw"]
+[ext_resource type="Texture2D" uid="uid://tx0dfl2tcyfc" path="res://Textures/golden.png" id="16_d13ii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mti6b"]
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_texture = ExtResource("2_efxa6")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.51
+emission_operator = 1
+uv1_scale = Vector3(0.005, 0, 0.015)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4kxuq"]
+material = SubResource("StandardMaterial3D_mti6b")
+size = Vector2(5000, 500)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kxuq"]
+bg_color = Color(1, 1, 1, 0.44705883)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+corner_detail = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82xsv"]
+texture = ExtResource("14_getpj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cegan"]
+texture = ExtResource("15_ryguw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_074og"]
+texture = ExtResource("16_d13ii")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1u8w0"]
+texture = ExtResource("16_d13ii")
+
+[node name="Main" type="Node" unique_id=36492926]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1501163053]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=383131432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+script = ExtResource("1_0xm2m")
+
+[node name="3dEnv" type="Node3D" parent="." unique_id=1054404045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.15771)
+
+[node name="Sketchfab_Scene" parent="3dEnv" unique_id=226493433 instance=ExtResource("2_dg77c")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3dEnv" unique_id=681376815]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1696.0248, 0, -17.56594)
+mesh = SubResource("PlaneMesh_4kxuq")
+
+[node name="Rocket" type="Sprite3D" parent="3dEnv" unique_id=1372970144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.035328, 0, 0)
+billboard = 1
+texture = ExtResource("4_getpj")
+script = ExtResource("3_h2yge")
+
+[node name="Destination" type="CSGSphere3D" parent="3dEnv" unique_id=667075671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
+radius = 10.0
+
+[node name="sun3" parent="3dEnv" unique_id=1595110508 instance=ExtResource("6_ycdy4")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 413.79578, 0, 34.109985)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1529018962]
+
+[node name="Progress" type="RichTextLabel" parent="UI" unique_id=113648076]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 394.0
+grow_vertical = 0
+
+[node name="RandomEvents" type="CanvasLayer" parent="." unique_id=1890538301]
+
+[node name="Deck" type="HBoxContainer" parent="RandomEvents" unique_id=6256192]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -517.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("8_074og")
+
+[node name="MissionHealthAndProgress" type="VBoxContainer" parent="RandomEvents" unique_id=723601301]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -928.0
+offset_top = -40.0
+offset_right = 928.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MissionHP" type="Label" parent="RandomEvents/MissionHealthAndProgress" unique_id=1465634977]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+text = "Mission HP"
+
+[node name="HPBar" type="ProgressBar" parent="RandomEvents/MissionHealthAndProgress" unique_id=16515441]
+custom_minimum_size = Vector2(1856, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+value = 63.73
+
+[node name="MissionProgress" type="Label" parent="RandomEvents/MissionHealthAndProgress" unique_id=721594796]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+text = "Mission Progress"
+
+[node name="ProgressBar" type="ProgressBar" parent="RandomEvents/MissionHealthAndProgress" unique_id=1963880984]
+custom_minimum_size = Vector2(1856, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+value = 63.73
+script = ExtResource("4_1bvp3")
+
+[node name="SpaceMissionDesign" type="CanvasLayer" parent="." unique_id=1108744387]
+visible = false
+script = ExtResource("5_272bh")
+
+[node name="LaunchSegment" type="Control" parent="SpaceMissionDesign" unique_id=106587804]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="SpaceMissionDesign/LaunchSegment" unique_id=396435224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_w48qg")
+
+[node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=930192402]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -440.875
+offset_top = 64.0
+offset_right = 440.875
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 96
+text = "Launch Segment"
+
+[node name="BYD" type="RichTextLabel" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=134289078]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.4375
+offset_top = 171.0
+offset_right = 270.4375
+offset_bottom = 250.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 64
+text = "Build your deck!"
+fit_content = true
+scroll_active = false
+
+[node name="Next" type="Button" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=338677483]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -164.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+text = "Next Segment ->"
+
+[node name="Previous" type="Button" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=1652218]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -164.0
+offset_right = 464.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+text = "<- Main Menu"
+
+[node name="Cards" type="HBoxContainer" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=892247670]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 318.0
+offset_right = 1181.0
+offset_bottom = 828.0
+theme_override_constants/separation = 16
+script = ExtResource("8_4c57u")
+
+[node name="Card" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1144806962]
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Outsource QA
+10 million USD"
+script = ExtResource("8_kek77")
+cost = 6
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" unique_id=1068061306]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" unique_id=1037853419]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_82xsv")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card/Card" unique_id=1170627957]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Hybrid
+6 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card2" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1471873966]
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "In-house QA
+25 million USD"
+script = ExtResource("8_kek77")
+cost = 13
+reliability = 65
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" unique_id=1603999133]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" unique_id=139181319]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2/Card" unique_id=1394005331]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Liquid
+13 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card3" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=862980537]
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 20
+reliability = 90
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" unique_id=1195215151]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" unique_id=1443488799]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3/Card" unique_id=807800506]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Solid
+20 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card4" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1455473869]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 5
+reliability = 55
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" unique_id=1867363584]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" unique_id=424502604]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_82xsv")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4/Card" unique_id=759590221]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Stainless steel
+5 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card5" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=2004798087]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 11
+reliability = 85
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" unique_id=110576927]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" unique_id=2089520538]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5/Card" unique_id=327895596]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Titanium alloy
+11 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card6" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=2108766152]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 17
+reliability = 99
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" unique_id=1297039756]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" unique_id=208373721]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_1u8w0")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6/Card" unique_id=47704209]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Carbon Fiber
+17 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card7" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=592972468]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 4
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" unique_id=1378167187]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" unique_id=1214421390]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_82xsv")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7/Card" unique_id=849037794]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "S-Band
+4 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card8" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1929027516]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 9
+reliability = 50
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" unique_id=486299276]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" unique_id=1289908961]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8/Card" unique_id=1578471953]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "X-Band
+9 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card9" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1948047927]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 14
+reliability = 85
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" unique_id=1389990381]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" unique_id=311765001]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9/Card" unique_id=732609143]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Ka-Band
+14 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card14" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1406558706]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 3
+reliability = 60
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" unique_id=1096777295]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" unique_id=1099434281]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_82xsv")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14/Card" unique_id=943689703]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "RASAero II
+3 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card15" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=2070128561]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 7
+reliability = 85
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" unique_id=61107154]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" unique_id=1175319737]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15/Card" unique_id=103882769]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Open Rocket
+7 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card16" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1071825103]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 11
+reliability = 99
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" unique_id=1156694612]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" unique_id=1259510642]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16/Card" unique_id=2103211464]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "RocketPy
+11 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card18" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1583883467]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 4
+reliability = 40
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" unique_id=1980817630]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" unique_id=1859643989]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_82xsv")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18/Card" unique_id=1418981908]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Arcjets
+4 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card19" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=288884476]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 8
+reliability = 55
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" unique_id=768340055]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" unique_id=887005206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19/Card" unique_id=1421403522]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "HET
+8 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card20" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=519256767]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 13
+reliability = 75
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" unique_id=628501729]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" unique_id=2089872657]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_074og")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20/Card" unique_id=147385265]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Resistojets
+13 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card10" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1524147676]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 5
+reliability = 15
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" unique_id=537905529]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" unique_id=1816186565]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10/Card" unique_id=1658316175]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Engine-out
+redundancy
+5 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card11" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1296651921]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 5
+reliability = 15
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" unique_id=650150812]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" unique_id=434868149]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11/Card" unique_id=554100818]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Weather and
+lightning rules
+5 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card12" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1542323605]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 5
+reliability = 15
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" unique_id=986628467]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" unique_id=1475924204]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12/Card" unique_id=1338117772]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Range and
+Exclusion zones
+5 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card13" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=2110111554]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 5
+reliability = 15
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" unique_id=393341468]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" unique_id=438075699]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13/Card" unique_id=142052061]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Telemetry, Tracking
+and Command
+5 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Card17" type="Control" parent="SpaceMissionDesign/LaunchSegment/BG/Cards" unique_id=1612156585]
+visible = false
+custom_minimum_size = Vector2(288, 416)
+custom_maximum_size = Vector2(288, 416)
+layout_mode = 2
+tooltip_text = "Thorough QA
+40 million USD"
+script = ExtResource("8_kek77")
+cost = 5
+reliability = 15
+
+[node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" unique_id=416669659]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kxuq")
+
+[node name="Card" type="PanelContainer" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" unique_id=427350970]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_cegan")
+
+[node name="Label" type="Label" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17/Card" unique_id=907844349]
+custom_minimum_size = Vector2(192, 256)
+custom_maximum_size = Vector2(192, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 39
+text = "Circuit protection
+5 billion USD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Budget" type="RichTextLabel" parent="SpaceMissionDesign" unique_id=1872576450]
+offset_left = 955.0
+offset_top = 867.0
+offset_right = 1299.0
+offset_bottom = 912.0
+theme_override_fonts/normal_font = ExtResource("8_5vw27")
+theme_override_font_sizes/normal_font_size = 32
+text = "Budget: 4000 million USD"
+fit_content = true
+scroll_active = false
+
+[node name="Cost" type="RichTextLabel" parent="SpaceMissionDesign" unique_id=997215543]
+offset_left = 1013.0
+offset_top = 907.0
+offset_right = 1244.0
+offset_bottom = 952.0
+theme_override_fonts/normal_font = ExtResource("8_5vw27")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[color=red]-$5000"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Next" to="SpaceMissionDesign" method="_on_launch_segment_next_pressed"]
+[connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Previous" to="SpaceMissionDesign" method="_on_previous_pressed"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card7" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" method="_on_gui_input"]
+[connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" method="_on_mouse_exited"]

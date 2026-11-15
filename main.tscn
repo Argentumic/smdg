@@ -3,45 +3,31 @@
 [ext_resource type="Script" uid="uid://8xf0ebg7ooho" path="res://Scripts/camera_3d.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://drc7xcxfrgmd6" path="res://3dModels/earth/scene.gltf" id="2_dg77c"]
 [ext_resource type="Texture2D" uid="uid://ch7my7c3d2mxk" path="res://Textures/stars.png" id="2_efxa6"]
-[ext_resource type="Script" uid="uid://bgkontnk0cnl" path="res://addons/card_3d/scripts/drag_controller.gd" id="2_yaehf"]
 [ext_resource type="Script" uid="uid://cxq1l4u3ooxv7" path="res://Scripts/rocket.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c1noexiybov1v" path="res://Scripts/progress.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://4mk2xmc7mmr" path="res://Textures/rocket.png" id="4_getpj"]
 [ext_resource type="FontFile" uid="uid://bv1h1ih311a11" path="res://Fonts/Nasalization Rg.otf" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://xn3k40htoew8" path="res://Scripts/space_mission_design.gd" id="5_272bh"]
-[ext_resource type="Script" uid="uid://bhsbphug3lcqi" path="res://addons/card_3d/scripts/card_collection/card_collection_3d.gd" id="5_getpj"]
 [ext_resource type="Theme" uid="uid://brkhbiirf1aky" path="res://theme.tres" id="6_272bh"]
-[ext_resource type="Script" uid="uid://7sguf1kjbe8s" path="res://addons/card_3d/scripts/card_layouts/fan_card_layout.gd" id="6_getpj"]
 [ext_resource type="Texture2D" uid="uid://cmo44s1qe6ayo" path="res://Textures/random.png" id="6_ryguw"]
 [ext_resource type="PackedScene" uid="uid://mslhv6tpkh12" path="res://3dModels/sun/sun.gltf" id="6_ycdy4"]
+[ext_resource type="Script" uid="uid://bk23i5cjlpid5" path="res://random_events.gd" id="7_cegan"]
+[ext_resource type="PackedScene" uid="uid://vkpcbp88hna7" path="res://3dModels/moon/moon.glb" id="7_ryguw"]
 [ext_resource type="Script" uid="uid://brbdx40ewd1mj" path="res://Scripts/cards.gd" id="8_4c57u"]
 [ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fonts/Fragile Bombers.otf" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://5khguql0mt4b" path="res://Scripts/deck.gd" id="8_074og"]
 [ext_resource type="Script" uid="uid://c6jjxnov5p2jb" path="res://Scripts/card.gd" id="8_kek77"]
+[ext_resource type="Script" uid="uid://b2rqedatafa1y" path="res://hp_bar.gd" id="10_82xsv"]
 [ext_resource type="Texture2D" uid="uid://dalpho2e5oiwb" path="res://Textures/table.png" id="11_w48qg"]
+[ext_resource type="Script" uid="uid://bfibsrv76uhde" path="res://engine_event.gd" id="14_1u8w0"]
+[ext_resource type="Script" uid="uid://gp7xrmfeuhed" path="res://time.gd" id="14_d13ii"]
 [ext_resource type="Texture2D" uid="uid://c855frn2a5phs" path="res://Textures/steel.png" id="14_getpj"]
+[ext_resource type="Script" uid="uid://c066tdynmh1qd" path="res://case_event.gd" id="15_0odxb"]
 [ext_resource type="Texture2D" uid="uid://dyuyry1jrs54g" path="res://Textures/silver.png" id="15_ryguw"]
-[ext_resource type="Script" uid="uid://b3ueup5svksf5" path="res://card_collection_3d.gd" id="16_074og"]
 [ext_resource type="Texture2D" uid="uid://tx0dfl2tcyfc" path="res://Textures/golden.png" id="16_d13ii"]
-
-[sub_resource type="Resource" id="Resource_mti6b"]
-script = ExtResource("6_getpj")
-metadata/_custom_type_script = "uid://7sguf1kjbe8s"
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_82xsv"]
-points = PackedVector3Array(-7, 1, 0, -7, -10, 0, 7, 1, 0, 7, -10, 0)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uiaxb"]
-points = PackedVector3Array(-10, 0, 0, -10, -3, 0, 10, 0, 0, 10, -3, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_getpj"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.81960785)
-albedo_texture = ExtResource("6_ryguw")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_mti6b"]
-material = SubResource("StandardMaterial3D_getpj")
-size = Vector2(14, 7)
-orientation = 2
+[ext_resource type="Script" uid="uid://5aai621ejn78" path="res://communication_event.gd" id="16_lswn8"]
+[ext_resource type="Script" uid="uid://cfpu6467fbt55" path="res://power_event.gd" id="17_a6jrf"]
+[ext_resource type="Script" uid="uid://crsiw4d0fj8r" path="res://software_event.gd" id="18_xuqvo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mti6b"]
 disable_ambient_light = true
@@ -87,40 +73,6 @@ transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 script = ExtResource("1_0xm2m")
 
-[node name="DragController" type="Node3D" parent="Camera3D" unique_id=106676395]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
-script = ExtResource("2_yaehf")
-metadata/_custom_type_script = "uid://bgkontnk0cnl"
-
-[node name="CardCollection3D" type="Node3D" parent="Camera3D/DragController" unique_id=658858136]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6824207, 0)
-script = ExtResource("16_074og")
-card_layout_strategy = SubResource("Resource_mti6b")
-metadata/_custom_type_script = "uid://bhsbphug3lcqi"
-
-[node name="DropZone" type="StaticBody3D" parent="Camera3D/DragController/CardCollection3D" unique_id=1668762907]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/DragController/CardCollection3D/DropZone" unique_id=123889077]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
-shape = SubResource("ConvexPolygonShape3D_82xsv")
-
-[node name="CardCollection3D2" type="Node3D" parent="Camera3D/DragController" unique_id=96433749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8947525, 0)
-script = ExtResource("5_getpj")
-metadata/_custom_type_script = "uid://bhsbphug3lcqi"
-
-[node name="DropZone" type="StaticBody3D" parent="Camera3D/DragController/CardCollection3D2" unique_id=977832301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/DragController/CardCollection3D2/DropZone" unique_id=1680681490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
-shape = SubResource("ConvexPolygonShape3D_uiaxb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/DragController/CardCollection3D2" unique_id=1255136350]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.872773, -1.6587243, 0)
-mesh = SubResource("PlaneMesh_mti6b")
-
 [node name="3dEnv" type="Node3D" parent="." unique_id=1054404045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.15771)
 
@@ -136,25 +88,266 @@ billboard = 1
 texture = ExtResource("4_getpj")
 script = ExtResource("3_h2yge")
 
-[node name="Destination" type="CSGSphere3D" parent="3dEnv" unique_id=667075671]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 0, 0)
-radius = 10.0
-
 [node name="sun3" parent="3dEnv" unique_id=1595110508 instance=ExtResource("6_ycdy4")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 413.79578, 0, 34.109985)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1529018962]
+[node name="moon3" parent="3dEnv" unique_id=542483105 instance=ExtResource("7_ryguw")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 3000, 0, 0)
 
-[node name="Progress" type="RichTextLabel" parent="UI" unique_id=113648076]
-anchors_preset = 2
+[node name="RandomEvents" type="CanvasLayer" parent="." unique_id=1890538301]
+process_mode = 3
+script = ExtResource("7_cegan")
+
+[node name="Deck" type="HBoxContainer" parent="RandomEvents" unique_id=6256192]
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 394.0
+offset_top = -517.0
+offset_bottom = -101.0
+grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
+script = ExtResource("8_074og")
+
+[node name="MissionHealthAndProgress" type="VBoxContainer" parent="RandomEvents" unique_id=723601301]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -928.0
+offset_top = -40.0
+offset_right = 928.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MissionHP" type="Label" parent="RandomEvents/MissionHealthAndProgress" unique_id=1465634977]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+text = "Mission HP"
+
+[node name="HPBar" type="ProgressBar" parent="RandomEvents/MissionHealthAndProgress" unique_id=16515441]
+custom_minimum_size = Vector2(1856, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+value = 63.73
+script = ExtResource("10_82xsv")
+
+[node name="MissionProgress" type="Label" parent="RandomEvents/MissionHealthAndProgress" unique_id=721594796]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+text = "Mission Progress"
+
+[node name="ProgressBar" type="ProgressBar" parent="RandomEvents/MissionHealthAndProgress" unique_id=1963880984]
+custom_minimum_size = Vector2(1856, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 16
+value = 63.73
 script = ExtResource("4_1bvp3")
 
+[node name="RandomEventTimer" type="Timer" parent="RandomEvents" unique_id=147077530]
+wait_time = 10.0
+
+[node name="RandomEvent" type="TextureRect" parent="RandomEvents" unique_id=751045136]
+visible = false
+custom_minimum_size = Vector2(1024, 512)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = 32.0
+offset_right = 512.0
+offset_bottom = 544.0
+grow_horizontal = 2
+tooltip_text = "Choose the card to oppose this problem!!!"
+texture = ExtResource("6_ryguw")
+
+[node name="EngineEvent" type="Control" parent="RandomEvents/RandomEvent" unique_id=1787612796]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_1u8w0")
+
+[node name="Title" type="Label" parent="RandomEvents/RandomEvent/EngineEvent" unique_id=169214627]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 91.0
+offset_top = 9.0
+offset_right = 378.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: ENGINE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="RandomEvents/RandomEvent/EngineEvent" unique_id=1081406353]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 104.0
+offset_right = 537.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: ENGINE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CaseEvent" type="Control" parent="RandomEvents/RandomEvent" unique_id=945120965]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_0odxb")
+
+[node name="Title" type="Label" parent="RandomEvents/RandomEvent/CaseEvent" unique_id=3007800]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 91.0
+offset_top = 9.0
+offset_right = 378.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: SPACE JUNK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="RandomEvents/RandomEvent/CaseEvent" unique_id=1533085697]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 104.0
+offset_right = 537.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: SPACE JUNK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CommunicationEvent" type="Control" parent="RandomEvents/RandomEvent" unique_id=415282936]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_lswn8")
+
+[node name="Title" type="Label" parent="RandomEvents/RandomEvent/CommunicationEvent" unique_id=1784282687]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 91.0
+offset_top = 9.0
+offset_right = 378.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: INTERFERENCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="RandomEvents/RandomEvent/CommunicationEvent" unique_id=1919442799]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 104.0
+offset_right = 537.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: INTERFERENCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoftwareEvent" type="Control" parent="RandomEvents/RandomEvent" unique_id=619513078]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("18_xuqvo")
+
+[node name="Title" type="Label" parent="RandomEvents/RandomEvent/SoftwareEvent" unique_id=1020109040]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 91.0
+offset_top = 9.0
+offset_right = 378.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: STACK OVERFLOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="RandomEvents/RandomEvent/SoftwareEvent" unique_id=612732791]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 104.0
+offset_right = 537.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: STACK OVERFLOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerEvent" type="Control" parent="RandomEvents/RandomEvent" unique_id=246541735]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_a6jrf")
+
+[node name="Title" type="Label" parent="RandomEvents/RandomEvent/PowerEvent" unique_id=1019006885]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 91.0
+offset_top = 9.0
+offset_right = 378.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: POWER OUTAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="RandomEvents/RandomEvent/PowerEvent" unique_id=125470795]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 104.0
+offset_right = 537.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "ERR: POWER OUTAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="RandomEvents/RandomEvent" unique_id=1137163683]
+modulate = Color(1, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 571.0
+offset_top = 442.0
+offset_right = 892.0
+offset_bottom = 497.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 37
+text = "10.0s remaining"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("14_d13ii")
+
 [node name="SpaceMissionDesign" type="CanvasLayer" parent="." unique_id=1108744387]
+process_mode = 3
 script = ExtResource("5_272bh")
 
 [node name="LaunchSegment" type="Control" parent="SpaceMissionDesign" unique_id=106587804]
@@ -302,7 +495,6 @@ tooltip_text = "In-house QA
 25 million USD"
 script = ExtResource("8_kek77")
 cost = 13
-reliability = 65
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" unique_id=1603999133]
 visible = false
@@ -352,7 +544,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 20
-reliability = 90
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" unique_id=1195215151]
 visible = false
@@ -403,7 +594,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
-reliability = 55
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" unique_id=1867363584]
 visible = false
@@ -454,7 +644,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 11
-reliability = 85
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" unique_id=110576927]
 visible = false
@@ -505,7 +694,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 17
-reliability = 99
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" unique_id=1297039756]
 visible = false
@@ -606,7 +794,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 9
-reliability = 50
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" unique_id=486299276]
 visible = false
@@ -657,7 +844,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 14
-reliability = 85
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" unique_id=1389990381]
 visible = false
@@ -708,7 +894,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 3
-reliability = 60
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" unique_id=1096777295]
 visible = false
@@ -759,7 +944,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 7
-reliability = 85
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" unique_id=61107154]
 visible = false
@@ -810,7 +994,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 11
-reliability = 99
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" unique_id=1156694612]
 visible = false
@@ -861,7 +1044,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 4
-reliability = 40
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" unique_id=1980817630]
 visible = false
@@ -912,7 +1094,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 8
-reliability = 55
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" unique_id=768340055]
 visible = false
@@ -963,7 +1144,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 13
-reliability = 75
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" unique_id=628501729]
 visible = false
@@ -1014,7 +1194,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
-reliability = 15
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card10" unique_id=537905529]
 visible = false
@@ -1066,7 +1245,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
-reliability = 15
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card11" unique_id=650150812]
 visible = false
@@ -1118,7 +1296,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
-reliability = 15
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card12" unique_id=986628467]
 visible = false
@@ -1170,7 +1347,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
-reliability = 15
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card13" unique_id=393341468]
 visible = false
@@ -1222,7 +1398,6 @@ tooltip_text = "Thorough QA
 40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
-reliability = 15
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" unique_id=416669659]
 visible = false
@@ -1288,10 +1463,13 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[connection signal="mouse_entered" from="Camera3D/DragController/CardCollection3D/DropZone" to="Camera3D/DragController/CardCollection3D" method="_on_drop_zone_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/DragController/CardCollection3D/DropZone" to="Camera3D/DragController/CardCollection3D" method="_on_drop_zone_mouse_exited"]
-[connection signal="mouse_entered" from="Camera3D/DragController/CardCollection3D2/DropZone" to="Camera3D/DragController/CardCollection3D2" method="_on_drop_zone_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/DragController/CardCollection3D2/DropZone" to="Camera3D/DragController/CardCollection3D2" method="_on_drop_zone_mouse_exited"]
+[node name="MissionSuccessful" type="CanvasLayer" parent="." unique_id=875419874]
+visible = false
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=1580080113]
+visible = false
+
+[connection signal="timeout" from="RandomEvents/RandomEventTimer" to="RandomEvents" method="_on_random_event_timer_timeout"]
 [connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Next" to="SpaceMissionDesign" method="_on_launch_segment_next_pressed"]
 [connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Previous" to="SpaceMissionDesign" method="_on_previous_pressed"]
 [connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_gui_input"]

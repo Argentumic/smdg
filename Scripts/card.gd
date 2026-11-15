@@ -2,8 +2,9 @@ extends Control
 
 var is_mouse_inside:bool = false;
 @export var cost:int = 1000;
-@export var reliability:int = 30;
+@export var reliability:float = 30;
 @onready var higlight: Panel = $Panel
+@onready var label: Label = $Card/Label
 
 
 func _on_mouse_entered() -> void:

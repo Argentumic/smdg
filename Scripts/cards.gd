@@ -18,6 +18,14 @@ var phase:int = 0;
 func next_card_set() -> bool:
 	$"../../..".budget -= picked_card.cost
 	phase += 1;
+	if phase <= 5:
+		var new_card = picked_card.duplicate()
+		$"../../../../RandomEvents/Deck".add_child(new_card)
+	else:
+		var index = [$Card10, $Card11, $Card12, $Card13, $Card17].find(picked_card)
+		$"../../../../RandomEvents/Deck".get_children()[index].reliability += 15
+		if $"../../../../RandomEvents/Deck".get_children()[index].reliability > 100:
+			$"../../../../RandomEvents/Deck".get_children()[index].reliability = 100;
 	if phase < len(phase_cards):
 		for arr in phase_cards:
 			for card in arr:
