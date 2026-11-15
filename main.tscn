@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1edygjakmxqd" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://drc7xcxfrgmd6" path="res://3dModels/earth/scene.gltf" id="2_dg77c"]
 [ext_resource type="Texture2D" uid="uid://ch7my7c3d2mxk" path="res://Textures/stars.png" id="2_efxa6"]
+[ext_resource type="Script" uid="uid://bgkontnk0cnl" path="res://addons/card_3d/scripts/drag_controller.gd" id="2_yaehf"]
 [ext_resource type="Script" uid="uid://cxq1l4u3ooxv7" path="res://Scripts/rocket.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c1noexiybov1v" path="res://Scripts/progress.gd" id="4_1bvp3"]
 [ext_resource type="FontFile" uid="uid://bv1h1ih311a11" path="res://Fonts/Nasalization Rg.otf" id="5_7mycd"]
@@ -14,6 +15,9 @@
 [ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fonts/Fragile Bombers.otf" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://c6jjxnov5p2jb" path="res://Scripts/card.gd" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://dalpho2e5oiwb" path="res://Textures/table.png" id="11_w48qg"]
+[ext_resource type="Script" uid="uid://b3ueup5svksf5" path="res://card_collection_3d.gd" id="16_074og"]
+[ext_resource type="Script" uid="uid://dk8dsc1jau1rh" path="res://addons/card_3d/scripts/card_layouts/line_card_layout.gd" id="17_074og"]
+[ext_resource type="Script" uid="uid://dsyors6p1ph7" path="res://addons/card_3d/scripts/card_layouts/pile_card_layout.gd" id="19_cegan"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mti6b"]
 disable_ambient_light = true
@@ -44,16 +48,31 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="Resource" id="Resource_074og"]
+script = ExtResource("17_074og")
+metadata/_custom_type_script = "uid://dk8dsc1jau1rh"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_82xsv"]
+points = PackedVector3Array(-7, 1, 0, -7, -10, 0, 7, 1, 0, 7, -10, 0)
+
+[sub_resource type="Resource" id="Resource_mm1bc"]
+script = ExtResource("19_cegan")
+metadata/_custom_type_script = "uid://dsyors6p1ph7"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uiaxb"]
+points = PackedVector3Array(-10, 0, 0, -10, -3, 0, 10, 0, 0, 10, -3, 0)
+
 [node name="Main" type="Node" unique_id=36492926]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1501163053]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=383131432]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 46.328575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 script = ExtResource("1_0xm2m")
 
 [node name="3dEnv" type="Node3D" parent="." unique_id=1054404045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.15771)
 
 [node name="Sketchfab_Scene" parent="3dEnv" unique_id=226493433 instance=ExtResource("2_dg77c")]
 
@@ -75,6 +94,7 @@ radius = 10.0
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 413.79578, 0, 34.109985)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1529018962]
+visible = false
 
 [node name="Progress" type="RichTextLabel" parent="UI" unique_id=113648076]
 anchors_preset = 2
@@ -153,162 +173,6 @@ theme = ExtResource("6_272bh")
 text = "Next Segment ->"
 
 [node name="Previous" type="Button" parent="SpaceMissionDesign/UserSegment/BG" unique_id=30755772]
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -164.0
-offset_right = 464.0
-offset_bottom = -64.0
-grow_vertical = 0
-theme = ExtResource("6_272bh")
-text = "<- Previous Segment"
-
-[node name="GroundSegment" type="Control" parent="SpaceMissionDesign" unique_id=654391569]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="TextureRect" parent="SpaceMissionDesign/GroundSegment" unique_id=806431313]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("11_w48qg")
-
-[node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=1763033849]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -440.875
-offset_top = 64.0
-offset_right = 440.875
-offset_bottom = 194.0
-grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("5_7mycd")
-theme_override_font_sizes/normal_font_size = 96
-text = "Ground Segment"
-
-[node name="BYD" type="RichTextLabel" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=634299387]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -270.4375
-offset_top = 171.0
-offset_right = 270.4375
-offset_bottom = 250.0
-grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("5_7mycd")
-theme_override_font_sizes/normal_font_size = 64
-text = "Build your deck!"
-fit_content = true
-scroll_active = false
-
-[node name="Next" type="Button" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=1523449707]
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -464.0
-offset_top = -164.0
-offset_right = -64.0
-offset_bottom = -64.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("6_272bh")
-text = "Next Segment ->"
-
-[node name="Previous" type="Button" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=229508284]
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -164.0
-offset_right = 464.0
-offset_bottom = -64.0
-grow_vertical = 0
-theme = ExtResource("6_272bh")
-text = "<- Previous Segment"
-
-[node name="SpaceSegment" type="Control" parent="SpaceMissionDesign" unique_id=357552839]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="TextureRect" parent="SpaceMissionDesign/SpaceSegment" unique_id=408953206]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("11_w48qg")
-
-[node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=2093708545]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -404.4375
-offset_top = 64.0
-offset_right = 404.4375
-offset_bottom = 194.0
-grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("5_7mycd")
-theme_override_font_sizes/normal_font_size = 96
-text = "Space Segment"
-
-[node name="BYD" type="RichTextLabel" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=590723537]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -270.4375
-offset_top = 171.0
-offset_right = 270.4375
-offset_bottom = 250.0
-grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("5_7mycd")
-theme_override_font_sizes/normal_font_size = 64
-text = "Build your deck!"
-fit_content = true
-scroll_active = false
-
-[node name="Next" type="Button" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=47914033]
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -464.0
-offset_top = -164.0
-offset_right = -64.0
-offset_bottom = -64.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("6_272bh")
-text = "Next Segment ->"
-
-[node name="Previous" type="Button" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=501048656]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 1
 anchors_preset = 2
@@ -789,6 +653,84 @@ Tracking systems.
 Automatic Troubleshooting.
 30 million USD"
 
+[node name="GroundSegment" type="Control" parent="SpaceMissionDesign" unique_id=654391569]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="SpaceMissionDesign/GroundSegment" unique_id=806431313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_w48qg")
+
+[node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=1763033849]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -440.875
+offset_top = 64.0
+offset_right = 440.875
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 96
+text = "Ground Segment"
+
+[node name="BYD" type="RichTextLabel" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=634299387]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.4375
+offset_top = 171.0
+offset_right = 270.4375
+offset_bottom = 250.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 64
+text = "Build your deck!"
+fit_content = true
+scroll_active = false
+
+[node name="Next" type="Button" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=1523449707]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -164.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+text = "Next Segment ->"
+
+[node name="Previous" type="Button" parent="SpaceMissionDesign/GroundSegment/BG" unique_id=229508284]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -164.0
+offset_right = 464.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+text = "<- Previous Segment"
+
 [node name="Budget" type="RichTextLabel" parent="SpaceMissionDesign" unique_id=1872576450]
 offset_left = 955.0
 offset_top = 867.0
@@ -799,6 +741,84 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Budget: 4000 million USD"
 fit_content = true
 scroll_active = false
+
+[node name="SpaceSegment" type="Control" parent="SpaceMissionDesign" unique_id=357552839]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="SpaceMissionDesign/SpaceSegment" unique_id=408953206]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_w48qg")
+
+[node name="Title" type="RichTextLabel" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=2093708545]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -404.4375
+offset_top = 64.0
+offset_right = 404.4375
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 96
+text = "Space Segment"
+
+[node name="BYD" type="RichTextLabel" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=590723537]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.4375
+offset_top = 171.0
+offset_right = 270.4375
+offset_bottom = 250.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 64
+text = "Build your deck!"
+fit_content = true
+scroll_active = false
+
+[node name="Next" type="Button" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=47914033]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -164.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+text = "Next Segment ->"
+
+[node name="Previous" type="Button" parent="SpaceMissionDesign/SpaceSegment/BG" unique_id=501048656]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -164.0
+offset_right = 464.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+text = "<- Previous Segment"
 
 [node name="Cost" type="RichTextLabel" parent="SpaceMissionDesign" unique_id=997215543]
 offset_left = 1013.0
@@ -813,12 +833,38 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
+[node name="DragController" type="Node3D" parent="." unique_id=106676395]
+script = ExtResource("2_yaehf")
+metadata/_custom_type_script = "uid://bgkontnk0cnl"
+
+[node name="CardCollection3D" type="Node3D" parent="DragController" unique_id=658858136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6824207, 0)
+script = ExtResource("16_074og")
+card_layout_strategy = SubResource("Resource_074og")
+metadata/_custom_type_script = "uid://bhsbphug3lcqi"
+
+[node name="DropZone" type="StaticBody3D" parent="DragController/CardCollection3D" unique_id=1668762907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DragController/CardCollection3D/DropZone" unique_id=123889077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
+shape = SubResource("ConvexPolygonShape3D_82xsv")
+
+[node name="CardCollection3D2" type="Node3D" parent="DragController" unique_id=96433749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8947525, 0)
+script = ExtResource("16_074og")
+card_layout_strategy = SubResource("Resource_mm1bc")
+metadata/_custom_type_script = "uid://bhsbphug3lcqi"
+
+[node name="DropZone" type="StaticBody3D" parent="DragController/CardCollection3D2" unique_id=977832301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DragController/CardCollection3D2/DropZone" unique_id=1680681490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
+shape = SubResource("ConvexPolygonShape3D_uiaxb")
+
 [connection signal="pressed" from="SpaceMissionDesign/UserSegment/BG/Next" to="SpaceMissionDesign" method="_on_user_segment_next_pressed"]
 [connection signal="pressed" from="SpaceMissionDesign/UserSegment/BG/Previous" to="SpaceMissionDesign" method="_on_user_segment_previous_pressed"]
-[connection signal="pressed" from="SpaceMissionDesign/GroundSegment/BG/Next" to="SpaceMissionDesign" method="_on_ground_segment_next_pressed"]
-[connection signal="pressed" from="SpaceMissionDesign/GroundSegment/BG/Previous" to="SpaceMissionDesign" method="_on_ground_segment_previous_pressed"]
-[connection signal="pressed" from="SpaceMissionDesign/SpaceSegment/BG/Next" to="SpaceMissionDesign" method="_on_space_segment_next_pressed"]
-[connection signal="pressed" from="SpaceMissionDesign/SpaceSegment/BG/Previous" to="SpaceMissionDesign" method="_on_space_segment_previous_pressed"]
 [connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Next" to="SpaceMissionDesign" method="_on_launch_segment_next_pressed"]
 [connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Previous" to="SpaceMissionDesign" method="_on_launch_segment_previous_pressed"]
 [connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_gui_input"]
@@ -848,3 +894,11 @@ horizontal_alignment = 1
 [connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" method="_on_gui_input"]
 [connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" method="_on_mouse_exited"]
+[connection signal="pressed" from="SpaceMissionDesign/GroundSegment/BG/Next" to="SpaceMissionDesign" method="_on_ground_segment_next_pressed"]
+[connection signal="pressed" from="SpaceMissionDesign/GroundSegment/BG/Previous" to="SpaceMissionDesign" method="_on_ground_segment_previous_pressed"]
+[connection signal="pressed" from="SpaceMissionDesign/SpaceSegment/BG/Next" to="SpaceMissionDesign" method="_on_space_segment_next_pressed"]
+[connection signal="pressed" from="SpaceMissionDesign/SpaceSegment/BG/Previous" to="SpaceMissionDesign" method="_on_space_segment_previous_pressed"]
+[connection signal="mouse_entered" from="DragController/CardCollection3D/DropZone" to="DragController/CardCollection3D" method="_on_drop_zone_mouse_entered"]
+[connection signal="mouse_exited" from="DragController/CardCollection3D/DropZone" to="DragController/CardCollection3D" method="_on_drop_zone_mouse_exited"]
+[connection signal="mouse_entered" from="DragController/CardCollection3D2/DropZone" to="DragController/CardCollection3D2" method="_on_drop_zone_mouse_entered"]
+[connection signal="mouse_exited" from="DragController/CardCollection3D2/DropZone" to="DragController/CardCollection3D2" method="_on_drop_zone_mouse_exited"]

@@ -8,4 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position.x = lerp(global_position.x, $"../3dEnv/Rocket".global_position.x, 2.0*delta);
+	pass
+	#global_position.x = lerp(global_position.x, $"../3dEnv/Rocket".global_position.x, 2.0*delta);
