@@ -24,6 +24,7 @@ func next_card_set() -> bool:
 				card.visible = false;
 		for card in phase_cards[phase]:
 			card.visible = true;
+		picked_card = phase_cards[phase][0]
 		return true;
 	else:
 		cost.clear();
