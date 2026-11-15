@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://bjjjybd2fu8hb"]
+
+[ext_resource type="Script" uid="uid://b45l1sbc4o0ic" path="res://Scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://kj5pp8bhpgmp" path="res://Textures/main_manu1.png" id="2_0k4wn"]
+[ext_resource type="FontFile" uid="uid://csduljcxolafx" path="res://Fonts/Nasalization Rg.otf" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://pit6mpnic58m" path="res://Scripts/main_panel.gd" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://4k0wm8ktau56" path="res://Textures/settings.png" id="2_glbon"]
+[ext_resource type="Texture2D" uid="uid://c2c2kqfwvtj06" path="res://Textures/button1.png" id="4_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://db1y4a17vqreq" path="res://Textures/button3.png" id="5_iotk1"]
+[ext_resource type="Texture2D" uid="uid://byqhrm10u6w1v" path="res://Textures/button2.png" id="6_w44g7"]
+[ext_resource type="AudioStream" uid="uid://c3lga67vuvfa8" path="res://Music/Gaia_MainThemeMenu.wav" id="9_0k4wn"]
+[ext_resource type="AudioStream" uid="uid://drcgv3ldw0rgg" path="res://Music/main_menu_button_scrolling.wav" id="10_cm266"]
+[ext_resource type="AudioStream" uid="uid://1y74oakshw2n" path="res://Music/interaction.wav" id="11_g8g3n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vivr"]
+texture = ExtResource("4_j5v2v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v5gy4"]
+texture = ExtResource("5_iotk1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8vrlf"]
+texture = ExtResource("6_w44g7")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qbdty"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_glbon"]
+texture = ExtResource("2_glbon")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8u0te"]
+texture = ExtResource("4_j5v2v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbdty"]
+texture = ExtResource("5_iotk1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oiatc"]
+texture = ExtResource("6_w44g7")
+
+[node name="Main Menu" type="Control" unique_id=449730594]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=27140832]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0k4wn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=330212438]
+layout_mode = 0
+offset_left = 1229.0
+offset_top = 30.0
+offset_right = 1849.0
+offset_bottom = 401.0
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 150
+text = "Space 
+Aeneda"
+
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=576418638]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83229166
+anchor_top = 0.73796296
+anchor_right = 0.90989584
+anchor_bottom = 0.9324074
+offset_left = -280.0
+offset_top = -320.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="play" type="Button" parent="MainButtons" unique_id=1828600118]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v5gy4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8vrlf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qbdty")
+text = "Play"
+
+[node name="settings" type="Button" parent="MainButtons" unique_id=996079082]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v5gy4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8vrlf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qbdty")
+text = "Settings"
+
+[node name="exit" type="Button" parent="MainButtons" unique_id=471043741]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v5gy4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8vrlf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qbdty")
+text = "Exit"
+
+[node name="SettingsMenu" type="Control" parent="." unique_id=1767513725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SettingsMenu" unique_id=1139387261]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 0.00012207031
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(6.317161e-08, 0.06414679, 0.07174783, 0.5882353)
+
+[node name="MainPanel" type="PanelContainer" parent="SettingsMenu" unique_id=46267155]
+custom_minimum_size = Vector2(1000, 670)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -336.0
+offset_right = 500.0
+offset_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_glbon")
+script = ExtResource("2_fu7sn")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/MainPanel" unique_id=339621550]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer" unique_id=932278149]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer" unique_id=268658276]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/MarginContainer" unique_id=365132579]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+uppercase = true
+
+[node name="GridContainer" type="GridContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer" unique_id=1092615388]
+layout_mode = 2
+theme_override_constants/h_separation = 2
+columns = 2
+
+[node name="VideoBox" type="VBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer" unique_id=201096198]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="Video" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox" unique_id=1635492358]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 40
+text = "Video"
+
+[node name="FullScreenRow" type="HBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox" unique_id=627392218]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox/FullScreenRow" unique_id=2092018173]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 25
+text = "Fullscreen"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox/FullScreenRow" unique_id=907541200]
+layout_mode = 2
+
+[node name="ResolutionRow" type="HBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox" unique_id=1214778411]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox/ResolutionRow" unique_id=407209800]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 25
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox/ResolutionRow" unique_id=184410024]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer" unique_id=1325016966]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/HBoxContainer" unique_id=1989823500]
+layout_mode = 2
+theme_override_constants/line_spacing = 7
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 40
+text = "Gameplay "
+
+[node name="AudioBox" type="VBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer" unique_id=1589950837]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox" unique_id=1785490935]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 40
+text = "AUDIO"
+
+[node name="Master" type="HBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox" unique_id=1462427086]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MasterVolum" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/Master" unique_id=251273600]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7vrkn")
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/Master" unique_id=148149754]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFX" type="HBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox" unique_id=1281107900]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="SFXVolum" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/SFX" unique_id=1652419764]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7vrkn")
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/SFX" unique_id=1904371080]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Music" type="HBoxContainer" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox" unique_id=420964150]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MusicVolum" type="Label" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/Music" unique_id=1217711912]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7vrkn")
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/Music" unique_id=1118927566]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="BackButton" type="Button" parent="SettingsMenu" unique_id=581071938]
+layout_mode = 0
+offset_left = 1370.0
+offset_top = 328.0
+offset_right = 1434.0
+offset_bottom = 382.0
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxTexture_8u0te")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qbdty")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oiatc")
+text = "X"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1088547039]
+stream = ExtResource("9_0k4wn")
+autoplay = true
+bus = &"Music"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1734968033]
+stream = ExtResource("10_cm266")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1074762923]
+stream = ExtResource("11_g8g3n")
+bus = &"SFX"
+
+[connection signal="pressed" from="MainButtons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainButtons/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainButtons/exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox/FullScreenRow/CheckButton" to="SettingsMenu/MainPanel" method="_on_check_button_toggled"]
+[connection signal="item_selected" from="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/GridContainer/VideoBox/ResolutionRow/OptionButton" to="SettingsMenu/MainPanel" method="_on_option_button_item_selected"]
+[connection signal="value_changed" from="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/Master/MasterSlider" to="SettingsMenu/MainPanel" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/SFX/SFXSlider" to="SettingsMenu/MainPanel" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/MainPanel/MarginContainer/VBoxContainer/AudioBox/Music/MusicSlider" to="SettingsMenu/MainPanel" method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]

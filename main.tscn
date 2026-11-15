@@ -11,23 +11,31 @@
 [ext_resource type="Theme" uid="uid://brkhbiirf1aky" path="res://theme.tres" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://cmo44s1qe6ayo" path="res://Textures/random.png" id="6_ryguw"]
 [ext_resource type="PackedScene" uid="uid://mslhv6tpkh12" path="res://3dModels/sun/sun.gltf" id="6_ycdy4"]
-[ext_resource type="Script" uid="uid://bk23i5cjlpid5" path="res://random_events.gd" id="7_cegan"]
+[ext_resource type="Script" uid="uid://bk23i5cjlpid5" path="res://Scripts/random_events.gd" id="7_cegan"]
 [ext_resource type="PackedScene" uid="uid://vkpcbp88hna7" path="res://3dModels/moon/moon.glb" id="7_ryguw"]
 [ext_resource type="Script" uid="uid://brbdx40ewd1mj" path="res://Scripts/cards.gd" id="8_4c57u"]
 [ext_resource type="FontFile" uid="uid://dhgrqh1hmvb3d" path="res://Fonts/Fragile Bombers.otf" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://5khguql0mt4b" path="res://Scripts/deck.gd" id="8_074og"]
 [ext_resource type="Script" uid="uid://c6jjxnov5p2jb" path="res://Scripts/card.gd" id="8_kek77"]
-[ext_resource type="Script" uid="uid://b2rqedatafa1y" path="res://hp_bar.gd" id="10_82xsv"]
+[ext_resource type="Script" uid="uid://b2rqedatafa1y" path="res://Scripts/hp_bar.gd" id="10_82xsv"]
 [ext_resource type="Texture2D" uid="uid://dalpho2e5oiwb" path="res://Textures/table.png" id="11_w48qg"]
-[ext_resource type="Script" uid="uid://bfibsrv76uhde" path="res://engine_event.gd" id="14_1u8w0"]
-[ext_resource type="Script" uid="uid://gp7xrmfeuhed" path="res://time.gd" id="14_d13ii"]
+[ext_resource type="Script" uid="uid://bfibsrv76uhde" path="res://Scripts/engine_event.gd" id="14_1u8w0"]
+[ext_resource type="Script" uid="uid://gp7xrmfeuhed" path="res://Scripts/time.gd" id="14_d13ii"]
 [ext_resource type="Texture2D" uid="uid://c855frn2a5phs" path="res://Textures/steel.png" id="14_getpj"]
-[ext_resource type="Script" uid="uid://c066tdynmh1qd" path="res://case_event.gd" id="15_0odxb"]
+[ext_resource type="Script" uid="uid://c066tdynmh1qd" path="res://Scripts/case_event.gd" id="15_0odxb"]
 [ext_resource type="Texture2D" uid="uid://dyuyry1jrs54g" path="res://Textures/silver.png" id="15_ryguw"]
 [ext_resource type="Texture2D" uid="uid://tx0dfl2tcyfc" path="res://Textures/golden.png" id="16_d13ii"]
-[ext_resource type="Script" uid="uid://5aai621ejn78" path="res://communication_event.gd" id="16_lswn8"]
-[ext_resource type="Script" uid="uid://cfpu6467fbt55" path="res://power_event.gd" id="17_a6jrf"]
-[ext_resource type="Script" uid="uid://crsiw4d0fj8r" path="res://software_event.gd" id="18_xuqvo"]
+[ext_resource type="Script" uid="uid://5aai621ejn78" path="res://Scripts/communication_event.gd" id="16_lswn8"]
+[ext_resource type="Script" uid="uid://cfpu6467fbt55" path="res://Scripts/power_event.gd" id="17_a6jrf"]
+[ext_resource type="Script" uid="uid://crsiw4d0fj8r" path="res://Scripts/software_event.gd" id="18_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://tosbdxlcfa1d" path="res://Textures/button1.png" id="24_seu75"]
+[ext_resource type="Texture2D" uid="uid://dyarimmjc1bhe" path="res://Textures/button3.png" id="25_htxhm"]
+[ext_resource type="Texture2D" uid="uid://dfimqbbog7g46" path="res://Textures/button2.png" id="26_jq2sk"]
+[ext_resource type="Script" uid="uid://df3n135kj1m2b" path="res://mission_successful.gd" id="32_0rl1p"]
+[ext_resource type="Script" uid="uid://bgs0ptlqwi8as" path="res://game_over.gd" id="32_4k2k6"]
+[ext_resource type="AudioStream" uid="uid://b0s554ogchrhy" path="res://Music/main_menu_button_scrolling.wav" id="32_jq2sk"]
+[ext_resource type="AudioStream" uid="uid://b18vnw7hgkk4d" path="res://Music/interaction.wav" id="33_4k2k6"]
+[ext_resource type="AudioStream" uid="uid://dgeygurdvl6m0" path="res://Music/mars_mission.ogg" id="36_ok6jj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mti6b"]
 disable_ambient_light = true
@@ -43,6 +51,17 @@ uv1_triplanar = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_4kxuq"]
 material = SubResource("StandardMaterial3D_mti6b")
 size = Vector2(5000, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vivr"]
+texture = ExtResource("24_seu75")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4k2k6"]
+texture = ExtResource("25_htxhm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rl1p"]
+texture = ExtResource("26_jq2sk")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok6jj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kxuq"]
 bg_color = Color(1, 1, 1, 0.44705883)
@@ -70,7 +89,7 @@ texture = ExtResource("16_d13ii")
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=383131432]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.933416)
 script = ExtResource("1_0xm2m")
 
 [node name="3dEnv" type="Node3D" parent="." unique_id=1054404045]
@@ -387,14 +406,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -270.4375
-offset_top = 171.0
-offset_right = 270.4375
-offset_bottom = 250.0
+offset_left = -476.99997
+offset_top = 147.00002
+offset_right = 63.875
+offset_bottom = 226.00002
 grow_horizontal = 2
+rotation = 0.15918191
 theme_override_fonts/normal_font = ExtResource("5_7mycd")
 theme_override_font_sizes/normal_font_size = 64
-text = "Build your deck!"
+text = "Mission Plan"
 fit_content = true
 scroll_active = false
 
@@ -413,21 +433,11 @@ offset_bottom = -64.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("6_272bh")
-text = "Next Segment ->"
-
-[node name="Previous" type="Button" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=1652218]
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -164.0
-offset_right = 464.0
-offset_bottom = -64.0
-grow_vertical = 0
-theme = ExtResource("6_272bh")
-text = "<- Main Menu"
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4k2k6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0rl1p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok6jj")
+text = "Next ->"
 
 [node name="Cards" type="HBoxContainer" parent="SpaceMissionDesign/LaunchSegment/BG" unique_id=892247670]
 layout_mode = 0
@@ -442,8 +452,6 @@ script = ExtResource("8_4c57u")
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Outsource QA
-10 million USD"
 script = ExtResource("8_kek77")
 cost = 6
 
@@ -481,7 +489,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
-text = "Hybrid
+text = "Hybrid Engine
 6 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -491,10 +499,9 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "In-house QA
-25 million USD"
 script = ExtResource("8_kek77")
 cost = 13
+reliability = 55.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card2" unique_id=1603999133]
 visible = false
@@ -530,7 +537,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
-text = "Liquid
+text = "Liquid fuel Engine
 13 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -540,10 +547,9 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 20
+reliability = 70.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card3" unique_id=1195215151]
 visible = false
@@ -579,7 +585,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
-text = "Solid
+text = "Solid fuel Engine
 20 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -590,10 +596,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
+reliability = 50.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card4" unique_id=1867363584]
 visible = false
@@ -629,7 +634,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
-text = "Stainless steel
+text = "Stainless steel body
 5 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -640,10 +645,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 11
+reliability = 70.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card5" unique_id=110576927]
 visible = false
@@ -679,7 +683,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
-text = "Titanium alloy
+text = "Titanium alloy body
 11 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -690,10 +694,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 17
+reliability = 80.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card6" unique_id=1297039756]
 visible = false
@@ -729,7 +732,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
-text = "Carbon Fiber
+text = "Carbon Fiber reinforced body
 17 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -740,8 +743,6 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 4
 
@@ -780,6 +781,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "S-Band
+Comms.
 4 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -790,10 +792,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 9
+reliability = 45.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card8" unique_id=486299276]
 visible = false
@@ -830,6 +831,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "X-Band
+Comms.
 9 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -840,10 +842,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 14
+reliability = 70.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card9" unique_id=1389990381]
 visible = false
@@ -880,6 +881,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "Ka-Band
+Comms.
 14 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -890,10 +892,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 3
+reliability = 40.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card14" unique_id=1096777295]
 visible = false
@@ -930,6 +931,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "RASAero II
+Software
 3 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -940,10 +942,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 7
+reliability = 70.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card15" unique_id=61107154]
 visible = false
@@ -980,6 +981,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "Open Rocket
+Software
 7 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -990,10 +992,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 11
+reliability = 80.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card16" unique_id=1156694612]
 visible = false
@@ -1030,6 +1031,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "RocketPy
+Software
 11 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1040,10 +1042,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 4
+reliability = 42.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card18" unique_id=1980817630]
 visible = false
@@ -1080,6 +1081,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "Arcjets
+Electrical system
 4 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1090,10 +1092,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 8
+reliability = 58.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card19" unique_id=768340055]
 visible = false
@@ -1130,6 +1131,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "HET
+Electrical system
 8 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1140,10 +1142,9 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 13
+reliability = 70.0
 
 [node name="Panel" type="Panel" parent="SpaceMissionDesign/LaunchSegment/BG/Cards/Card20" unique_id=628501729]
 visible = false
@@ -1180,6 +1181,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 39
 text = "Resistojets
+Electrical system
 13 billion USD"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1190,8 +1192,6 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
 
@@ -1241,8 +1241,6 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
 
@@ -1292,8 +1290,6 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
 
@@ -1343,8 +1339,6 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
 
@@ -1394,8 +1388,6 @@ visible = false
 custom_minimum_size = Vector2(288, 416)
 custom_maximum_size = Vector2(288, 416)
 layout_mode = 2
-tooltip_text = "Thorough QA
-40 million USD"
 script = ExtResource("8_kek77")
 cost = 5
 
@@ -1465,13 +1457,230 @@ horizontal_alignment = 1
 
 [node name="MissionSuccessful" type="CanvasLayer" parent="." unique_id=875419874]
 visible = false
+script = ExtResource("32_0rl1p")
+
+[node name="TextureRect" type="TextureRect" parent="MissionSuccessful" unique_id=1432888005]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_w48qg")
+
+[node name="BYD" type="RichTextLabel" parent="MissionSuccessful/TextureRect" unique_id=1719929470]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -476.99997
+offset_top = 147.00002
+offset_right = 63.875
+offset_bottom = 226.00002
+grow_horizontal = 2
+rotation = 0.15918191
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 64
+text = "Mission Plan"
+fit_content = true
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="MissionSuccessful/TextureRect" unique_id=756808939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 502.00003
+offset_top = 251.00003
+offset_right = -906.0
+offset_bottom = -317.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.16636214
+texture = ExtResource("4_getpj")
+
+[node name="BYD2" type="RichTextLabel" parent="MissionSuccessful/TextureRect" unique_id=555154721]
+modulate = Color(0.38431373, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -479.0
+offset_top = 711.0
+offset_right = 61.875
+offset_bottom = 790.0
+grow_horizontal = 2
+rotation = 0.15918191
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 64
+text = "SUCCESS"
+fit_content = true
+scroll_active = false
+
+[node name="TryAgain" type="Button" parent="MissionSuccessful/TextureRect" unique_id=465249070]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -289.0
+offset_right = -64.0
+offset_bottom = -189.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4k2k6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0rl1p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok6jj")
+text = "Try Again"
+
+[node name="MainMenu" type="Button" parent="MissionSuccessful/TextureRect" unique_id=807396940]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -164.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4k2k6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0rl1p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok6jj")
+text = "Main Menu"
 
 [node name="GameOver" type="CanvasLayer" parent="." unique_id=1580080113]
 visible = false
+script = ExtResource("32_4k2k6")
+
+[node name="TextureRect" type="TextureRect" parent="GameOver" unique_id=1344332073]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_w48qg")
+
+[node name="BYD" type="RichTextLabel" parent="GameOver/TextureRect" unique_id=1686476749]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -476.99997
+offset_top = 147.00002
+offset_right = 63.875
+offset_bottom = 226.00002
+grow_horizontal = 2
+rotation = 0.15918191
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 64
+text = "Mission Plan"
+fit_content = true
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="GameOver/TextureRect" unique_id=2131137762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 502.00003
+offset_top = 251.00003
+offset_right = -906.0
+offset_bottom = -317.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.16636214
+texture = ExtResource("4_getpj")
+
+[node name="BYD2" type="RichTextLabel" parent="GameOver/TextureRect" unique_id=57866788]
+modulate = Color(1, 0.16862746, 0.078431375, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -479.0
+offset_top = 711.0
+offset_right = 61.875
+offset_bottom = 790.0
+grow_horizontal = 2
+rotation = 0.15918191
+theme_override_fonts/normal_font = ExtResource("5_7mycd")
+theme_override_font_sizes/normal_font_size = 64
+text = "FAILURE"
+fit_content = true
+scroll_active = false
+
+[node name="TryAgain" type="Button" parent="GameOver/TextureRect" unique_id=1107151606]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -289.0
+offset_right = -64.0
+offset_bottom = -189.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4k2k6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0rl1p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok6jj")
+text = "Try Again"
+
+[node name="MainMenu" type="Button" parent="GameOver/TextureRect" unique_id=949371031]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -164.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_272bh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4k2k6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0rl1p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok6jj")
+text = "Main Menu"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=702926879]
+process_mode = 3
+stream = ExtResource("32_jq2sk")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1937978734 groups=["click_sound"]]
+process_mode = 3
+stream = ExtResource("33_4k2k6")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1651935588]
+process_mode = 3
+stream = ExtResource("36_ok6jj")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="timeout" from="RandomEvents/RandomEventTimer" to="RandomEvents" method="_on_random_event_timer_timeout"]
 [connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Next" to="SpaceMissionDesign" method="_on_launch_segment_next_pressed"]
-[connection signal="pressed" from="SpaceMissionDesign/LaunchSegment/BG/Previous" to="SpaceMissionDesign" method="_on_previous_pressed"]
 [connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_gui_input"]
 [connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card" method="_on_mouse_exited"]
@@ -1532,3 +1741,7 @@ visible = false
 [connection signal="gui_input" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" method="_on_gui_input"]
 [connection signal="mouse_entered" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" to="SpaceMissionDesign/LaunchSegment/BG/Cards/Card17" method="_on_mouse_exited"]
+[connection signal="pressed" from="MissionSuccessful/TextureRect/TryAgain" to="MissionSuccessful" method="_on_try_again_pressed"]
+[connection signal="pressed" from="MissionSuccessful/TextureRect/MainMenu" to="MissionSuccessful" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameOver/TextureRect/TryAgain" to="GameOver" method="_on_try_again_pressed"]
+[connection signal="pressed" from="GameOver/TextureRect/MainMenu" to="GameOver" method="_on_main_menu_pressed"]
